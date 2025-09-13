@@ -3,268 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romano Sandoval Transportes</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Servicio de Transporte Ejecutivo - Romano Sandoval Lizano</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            @apply bg-gray-50 text-gray-800;
         }
-        /* Custom scroll behavior for sections */
-        .section-link {
-            cursor: pointer;
+        .bg-pattern {
+            background-image: url('https://placehold.co/1200x800/2a2a2a/f9f9f9?text=Fondo+de+pantalla');
+            background-size: cover;
+            background-position: center;
         }
-        .section-link:hover {
-            text-decoration: underline;
+        .glass-bg {
+            background: rgba(43, 43, 43, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
-        /* Modal backdrop styles */
-        .modal-backdrop {
-            background-color: rgba(0, 0, 0, 0.5);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        /* Modal content styles */
-        .modal-content {
-            animation: slide-up 0.3s ease-out;
-        }
-        @keyframes slide-up {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+        .fade-in-on-load {
+            animation: fadeIn 1s ease-in-out;
         }
     </style>
 </head>
-<body>
-
-    <!-- Header / Navbar -->
-    <header class="bg-white shadow-md fixed w-full z-10">
-        <nav class="container mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-9v9a1 1 0 01-1 1h-3m-6 0h6m-6 0v-6a1 1 0 011-1h2a1 1 0 011 1v6m-4 0v-6a1 1 0 011-1h2a1 1 0 011 1v6" />
-                </svg>
-                <span class="font-bold text-2xl text-gray-900">Romano Sandoval</span>
-            </a>
-            <div class="hidden md:flex items-center space-x-6 text-lg">
-                <a href="#servicios" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Servicios</a>
-                <button onclick="openModal()" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Reserva</button>
-                <a href="#contacto" class="text-gray-600 hover:text-indigo-600 transition-colors duration-300">Contacto</a>
-            </div>
-        </nav>
-    </header>
+<body class="bg-gray-900 text-white leading-relaxed">
 
     <!-- Hero Section -->
-    <section class="relative bg-center bg-cover h-screen flex items-center justify-center p-6" style="background-image: url('https://placehold.co/1920x1080/000000/FFFFFF?text=Transporte+Ejecutivo');">
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative z-10 text-center text-white max-w-2xl">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight mb-4">
-                Transporte Ejecutivo y al Aeropuerto
+    <header class="relative flex items-center justify-center min-h-screen bg-pattern">
+        <div class="absolute inset-0 bg-gray-900 bg-opacity-70"></div>
+        <div class="relative z-10 text-center p-6 md:p-12 fade-in-on-load">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4">
+                <span class="block">RyC Mobility Solutions</span>
+                <span class="block text-xl md:text-3xl font-medium text-gray-400 mt-2">Transporte ejecutivo y transporte aeropuerto</span>
             </h1>
-            <p class="text-lg sm:text-xl md:text-2xl font-light mb-8">
-                Viaja con estilo, seguridad y puntualidad. Tu destino, nuestra prioridad.
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-300">
+                Ofrecemos un servicio de transporte privado, seguro y puntual, con la comodidad y exclusividad que usted merece.
             </p>
-            <button onclick="openModal()" class="inline-block bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition-transform transform hover:scale-105">
-                Reserva Ahora
-            </button>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="py-16 md:py-24 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- Service 1: Airport Transfer -->
-                <div class="bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-indigo-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
-                    <h3 class="text-2xl font-bold mb-2">Transporte al Aeropuerto</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Viajes puntuales y sin estrés hacia y desde el aeropuerto. Monitoreamos tu vuelo para asegurar una recogida perfecta, sin importar retrasos o cambios de horario.
-                    </p>
-                </div>
-                <!-- Service 2: Executive Transport -->
-                <div class="bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300">
-                    <!-- New Car Icon for Executive Transport -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-indigo-600 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M19 17.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                        <path d="M9 17.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                        <path d="M21 9h-2l-2-4H7L5 9H3c-1.1 0-2 .9-2 2v6h20v-6c0-1.1-.9-2-2-2z" />
-                        <path d="M4 14h16" />
-                    </svg>
-                    <h3 class="text-2xl font-bold mb-2">Transporte Ejecutivo</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        Servicio de transporte de primera clase para tus reuniones de negocios o eventos especiales. Coches cómodos y choferes profesionales para una experiencia de viaje inigualable.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contacto" class="py-16 md:py-24 px-6">
-        <div class="container mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12">Contáctanos</h2>
-            <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-2xl mx-auto text-center">
-                <p class="text-lg text-gray-600 mb-6">
-                    ¿Tienes alguna pregunta o necesitas un servicio personalizado? Contáctame directamente para recibir atención rápida.
-                </p>
-                <!-- Contact Info -->
-                <div class="space-y-4 mb-8 text-left inline-block">
-                    <p class="flex items-center space-x-3 text-lg">
-                        <!-- User Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <span>Romano Sandoval Lizano</span>
-                    </p>
-                    <p class="flex items-center space-x-3 text-lg">
-                        <!-- New Phone Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                            <path d="M12 18h.01" />
-                        </svg>
-                        <a href="tel:+50664499462" class="text-indigo-600 hover:text-indigo-800 transition-colors duration-300">+506 6449-9462</a>
-                    </p>
-                    <p class="flex items-center space-x-3 text-lg">
-                        <!-- Email Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                            <polyline points="22,6 12,13 2,6" />
-                        </svg>
-                        <a href="mailto:romasl87@gmail.com" class="text-indigo-600 hover:text-indigo-800 transition-colors duration-300">romasl87@gmail.com</a>
-                    </p>
-                </div>
-
-                <!-- Inquiry Button -->
-                <a href="https://wa.me/50664499462?text=Hola,%20me%20gustaría%20obtener%20más%20información%20sobre%20los%20servicios%20de%20transporte%20ejecutivo." target="_blank" class="inline-block bg-white text-indigo-600 font-bold py-3 px-8 rounded-full shadow-lg border-2 border-indigo-600 hover:bg-indigo-600 hover:text-white transition-colors duration-300">
-                    Hacer una consulta
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button id="openBookingModal" class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Reservar Ahora
+                </button>
+                <a href="https://wa.me/50664499462" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                    Consultar por WhatsApp
                 </a>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 px-6">
-        <div class="container mx-auto text-center text-sm">
-            <p>&copy; 2024 Romano Sandoval Transportes. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <!-- Services Section -->
+    <main class="container mx-auto px-4 py-16">
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center mb-12">Nuestros Servicios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Servicio de Transporte al Aeropuerto -->
+                <div class="glass-bg p-8 rounded-3xl shadow-lg transform transition duration-300 hover:scale-105 text-center">
+                    <div class="w-full h-56 rounded-2xl overflow-hidden mb-6">
+                         <!-- Imagen actualizada con la que proporcionaste -->
+                        <img src="uploaded:image.png-c8c041f4-06b6-4315-8d9e-a3e4d7d97e81" alt="Transporte al aeropuerto, tu comodidad y seguridad" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-teal-300 mb-3">Transporte al y desde el Aeropuerto</h3>
+                    <p class="text-gray-300">
+                        Viaje sin preocupaciones. Le garantizamos puntualidad para sus vuelos de salida y una bienvenida personalizada a su llegada.
+                    </p>
+                </div>
 
-    <!-- Reservation Modal -->
-    <div id="reservationModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
-        <div class="bg-white p-8 md:p-12 rounded-2xl shadow-xl max-w-2xl mx-auto w-full relative modal-content max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-6">Agenda tu Servicio</h2>
-            <p class="text-lg text-gray-600 mb-6 text-center">
-                Completa los datos para tu reserva. Se abrirá un evento de Google Calendar para que confirmes los detalles.
-            </p>
-            <form id="reservationForm" class="grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="event.preventDefault(); createCalendarEvent();">
+                <!-- Servicio de Transporte Ejecutivo -->
+                <div class="glass-bg p-8 rounded-3xl shadow-lg transform transition duration-300 hover:scale-105 text-center">
+                    <div class="w-full h-56 rounded-2xl overflow-hidden mb-6">
+                        <!-- Imagen actualizada con la que proporcionaste -->
+                        <img src="uploaded:image.png-d7a24948-59bd-480c-b38d-9e9756f4c7b5" alt="Servicio de transporte ejecutivo de lujo" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-teal-300 mb-3">Transporte Ejecutivo Privado</h3>
+                    <p class="text-gray-300">
+                        Ideal para reuniones de negocios, eventos especiales o traslados discretos. Nuestro servicio le brinda privacidad y confort en todo momento.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="text-center md:text-left mb-16">
+            <div class="glass-bg p-8 md:p-12 rounded-3xl shadow-lg flex flex-col md:flex-row items-center gap-8">
+                <div class="w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden shrink-0">
+                    <!-- Imagen de perfil actualizada con la que proporcionaste -->
+                    <img src="uploaded:image.png-c06f63ec-9ac7-4c58-b1b3-d4545502baec" alt="Foto de Romano Sandoval Lizano" class="w-full h-full object-cover">
+                </div>
                 <div>
-                    <label for="service" class="block text-gray-700 font-medium mb-2">Tipo de Servicio</label>
-                    <select id="service" name="service" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300">
-                        <option value="Transporte al Aeropuerto">Transporte al Aeropuerto</option>
+                    <h2 class="text-3xl font-bold mb-4">Sobre Romano Sandoval Lizano</h2>
+                    <p class="text-gray-300">
+                        Mi objetivo es ofrecer un servicio de transporte que vaya más allá de simplemente trasladar personas. Me enfoco en la seguridad, la puntualidad y una experiencia de cliente superior. Confíe en mí para sus viajes más importantes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="text-center">
+            <h2 class="text-4xl font-bold mb-8">Contáctame</h2>
+            <div class="text-gray-300">
+                <p class="mb-2">Teléfono: <a href="tel:64499462" class="text-teal-400 hover:underline">6449-9462</a></p>
+                <p>Correo: <a href="mailto:romasl87@gmail.com" class="text-teal-400 hover:underline">romasl87@gmail.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="fixed inset-0 bg-gray-900 bg-opacity-80 flex items-center justify-center p-4 z-50 hidden">
+        <div class="glass-bg p-8 rounded-3xl w-full max-w-2xl shadow-xl transform scale-95 transition-transform duration-300 ease-in-out">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Realizar Reserva</h3>
+                <button id="closeBookingModal" class="text-gray-400 hover:text-white transition duration-300">&times;</button>
+            </div>
+            <form id="bookingForm" class="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
+                <div class="col-span-1">
+                    <label for="name" class="block text-gray-300 font-medium mb-1">Nombre</label>
+                    <input type="text" id="name" name="name" required class="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+                <div class="col-span-1">
+                    <label for="phone" class="block text-gray-300 font-medium mb-1">Número de Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required class="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+                <div class="col-span-2">
+                    <label for="serviceType" class="block text-gray-300 font-medium mb-1">Tipo de Servicio</label>
+                    <select id="serviceType" name="serviceType" required class="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
                         <option value="Transporte Ejecutivo">Transporte Ejecutivo</option>
+                        <option value="Transporte Aeropuerto">Transporte al Aeropuerto</option>
                     </select>
                 </div>
-                <div>
-                    <label for="name" class="block text-gray-700 font-medium mb-2">Tu Nombre Completo</label>
-                    <input type="text" id="name" name="name" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300">
+                <div class="col-span-1">
+                    <label for="date" class="block text-gray-300 font-medium mb-1">Fecha</label>
+                    <input type="date" id="date" name="date" required class="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
                 </div>
-                <div>
-                    <label for="date" class="block text-gray-700 font-medium mb-2">Fecha</label>
-                    <input type="date" id="date" name="date" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300">
+                <div class="col-span-1">
+                    <label for="time" class="block text-gray-300 font-medium mb-1">Hora</label>
+                    <input type="time" id="time" name="time" required class="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
                 </div>
-                <div>
-                    <label for="time" class="block text-gray-700 font-medium mb-2">Hora</label>
-                    <input type="time" id="time" name="time" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300">
+                <div class="col-span-2">
+                    <label for="pickupLocation" class="block text-gray-300 font-medium mb-1">Lugar de inicio de viaje</label>
+                    <input type="text" id="pickupLocation" name="pickupLocation" required class="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
                 </div>
-                <div class="md:col-span-2">
-                    <label for="pickupLocation" class="block text-gray-700 font-medium mb-2">Lugar de Recogida</label>
-                    <input type="text" id="pickupLocation" name="pickupLocation" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300">
+                <div class="col-span-2">
+                    <label for="destination" class="block text-gray-300 font-medium mb-1">Lugar de Destino</label>
+                    <input type="text" id="destination" name="destination" required class="w-full p-3 bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500">
                 </div>
-                <div class="md:col-span-2">
-                    <label for="dropoffLocation" class="block text-gray-700 font-medium mb-2">Lugar de Destino</label>
-                    <input type="text" id="dropoffLocation" name="dropoffLocation" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300">
-                </div>
-                <div class="md:col-span-2">
-                    <label for="comments" class="block text-gray-700 font-medium mb-2">Comentarios (Opcional)</label>
-                    <textarea id="comments" name="comments" rows="3" class="w-full p-3 rounded-lg border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors duration-300"></textarea>
-                </div>
-                <div class="md:col-span-2 text-center mt-4">
-                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-indigo-700 transition-transform transform hover:scale-105">
-                        Reservar
+                <div class="col-span-2">
+                    <button type="submit" class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                        Enviar Reserva por Correo
                     </button>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- JavaScript para la funcionalidad de la página -->
     <script>
-        // Función para abrir la ventana modal de reserva
-        function openModal() {
-            document.getElementById('reservationModal').classList.remove('hidden');
-        }
+        const bookingModal = document.getElementById('bookingModal');
+        const openBookingBtn = document.getElementById('openBookingModal');
+        const closeBookingBtn = document.getElementById('closeBookingModal');
+        const bookingForm = document.getElementById('bookingForm');
+        
+        // Abrir el modal
+        openBookingBtn.addEventListener('click', () => {
+            bookingModal.classList.remove('hidden');
+        });
 
-        // Función para cerrar la ventana modal de reserva
-        function closeModal() {
-            document.getElementById('reservationModal').classList.add('hidden');
-        }
+        // Cerrar el modal
+        closeBookingBtn.addEventListener('click', () => {
+            bookingModal.classList.add('hidden');
+        });
 
-        function createCalendarEvent() {
-            const form = document.getElementById('reservationForm');
-            const service = form.service.value;
-            const name = form.name.value;
-            const date = form.date.value;
-            const time = form.time.value;
-            const pickupLocation = form.pickupLocation.value;
-            const dropoffLocation = form.dropoffLocation.value;
-            const comments = form.comments.value;
+        // Cerrar el modal al hacer clic fuera del formulario
+        bookingModal.addEventListener('click', (e) => {
+            if (e.target === bookingModal) {
+                bookingModal.classList.add('hidden');
+            }
+        });
 
-            // Formato de fecha para Google Calendar: YYYYMMDDTHHMMSS
-            const dateTime = new Date(`${date}T${time}:00`);
-            const year = dateTime.getFullYear();
-            const month = String(dateTime.getMonth() + 1).padStart(2, '0');
-            const day = String(dateTime.getDate()).padStart(2, '0');
-            const hours = String(dateTime.getHours()).padStart(2, '0');
-            const minutes = String(dateTime.getMinutes()).padStart(2, '0');
-            const formattedDate = `${year}${month}${day}T${hours}${minutes}00`;
-            
-            // Título del evento
-            const title = `Reserva de ${service} - ${name}`;
+        // Manejar el envío del formulario
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-            // Detalles del evento
-            const details = `
-                Servicio: ${service}
-                Cliente: ${name}
-                Fecha: ${date}
-                Hora: ${time}
-                Lugar de Recogida: ${pickupLocation}
-                Lugar de Destino: ${dropoffLocation}
-                Comentarios: ${comments}
-            `;
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const pickupLocation = document.getElementById('pickupLocation').value;
+            const destination = document.getElementById('destination').value;
 
-            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formattedDate}/${formattedDate}&details=${encodeURIComponent(details)}&sf=true`;
-            
-            // Abre la URL en una nueva pestaña
-            window.open(googleCalendarUrl, '_blank');
+            const subject = `Nueva Reserva de Transporte de ${name}`;
+            const body = `Hola Romano,\n\nRecibiste una nueva reserva de transporte.\n\n` +
+                         `Nombre: ${name}\n` +
+                         `Teléfono: ${phone}\n` +
+                         `Servicio: ${serviceType}\n` +
+                         `Fecha: ${date}\n` +
+                         `Hora: ${time}\n` +
+                         `Lugar de inicio de viaje: ${pickupLocation}\n` +
+                         `Destino: ${destination}\n\n` +
+                         `Por favor, confirma esta reserva lo antes posible.`;
 
-            // Ocultar la modal después de enviar
-            closeModal();
-        }
+            // Encodifica el asunto y el cuerpo del correo para la URL
+            const mailtoLink = `mailto:romasl87@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Abre el cliente de correo del usuario
+            window.location.href = mailtoLink;
+
+            // Opcional: cierra el modal después de que el cliente de correo se abre.
+            // Es mejor mantener el modal abierto para que el usuario sepa que la acción se ha iniciado.
+            // bookingModal.classList.add('hidden');
+        });
     </script>
 </body>
 </html>
+
